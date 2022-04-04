@@ -1,7 +1,3 @@
-import os
-from threading import local
-from tkinter import font
-from numpy import size
 from youtube_transcript_api import YouTubeTranscriptApi
 from tkinter import *
 from tkinter import ttk
