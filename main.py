@@ -51,19 +51,26 @@ def get_information():
 
     subtitles = YouTubeTranscriptApi.get_transcript(
         VIDEOID, languages=[local_lang])
-    subtitles_parsed = []
-    cleaned_words = []
     usable_words = []
     frequency = {}
-    for i in subtitles:
-        subtitles_parsed.append(i['text'])
-    for i in subtitles_parsed:
-        cleaned_words.append(i.replace("\n", " ").replace(".", " ").replace("(", "").replace(")", "").replace("?", "").replace("!", "").replace(
-            ",", "").replace(";", "").replace(":", "").replace('"', '').replace("-", ""))
+    subtitles_parsed = [i['text'] for i in subtitles]
+    cleaned_words = [
+        i.replace("\n", " ")
+        .replace(".", " ")
+        .replace("(", "")
+        .replace(")", "")
+        .replace("?", "")
+        .replace("!", "")
+        .replace(",", "")
+        .replace(";", "")
+        .replace(":", "")
+        .replace('"', '')
+        .replace("-", "")
+        for i in subtitles_parsed
+    ]
     for i in cleaned_words:
         words = i.split(" ")
-        for i in words:
-            usable_words.append(i.lower())
+        usable_words.extend(i.lower() for i in words)
     for i in usable_words:
         if i == "":
             continue
@@ -75,7 +82,7 @@ def get_information():
         frequency.items(), key=lambda x: x[1], reverse=True)
     with open(f"{USER_FILENAME}.txt", "w", encoding='utf-8') as f:
         for word, frequencies in sorted_frequency:
-            f.write(word + ": " + str(frequencies) + "\n")
+            f.write(f"{word}: {str(frequencies)}" + "\n")
     root.destroy()
 
 
