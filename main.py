@@ -12,7 +12,9 @@ class Zwicky:
             with open("config.toml", "r") as f:
                 self.config = toml.load(f)
         except FileNotFoundError:
-            error_message = "Config file not found. Please ensure that config.toml is in the same directory as this program. This can be downloaded from the Github repository."
+            error_message = "Config file not found. Please ensure that config.\
+                toml is in the same directory as this program. \
+                    This can be downloaded from the Github repository."
             raise FileNotFoundError(error_message)
         try:
             with open("ignored_words.txt", "r") as f:
@@ -44,7 +46,6 @@ class Zwicky:
         self.setup_gui()
 
     def setup_gui(self):
-
         ttk.Label(self.frm, text="Target Language").grid(column=0, row=0, sticky=W)
         self.combobox.grid(column=1, row=0, sticky=E)
 
@@ -70,7 +71,6 @@ class Zwicky:
         ttk.Label(self.frm, text="Use Max Slider").grid(column=2, row=3, sticky=W)
         self.use_max_slider_box.grid(column=3, row=3, sticky=E)
         self.use_max_slider_box.state(["selected"])
-
 
         ttk.Button(self.frm, text="Begin", command=self.get_information).grid(
             column=0, row=4, sticky=W
