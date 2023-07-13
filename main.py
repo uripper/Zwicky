@@ -37,7 +37,7 @@ class Zwicky:
         self.combobox = ttk.Combobox(
             self.frm, values=self.config["language_list"], state="readonly"
         )
-        self.entryfield = ttk.Entry(self.frm, width=25)
+        self.entry_field = ttk.Entry(self.frm, width=25)
 
         self.min_slider = Scale(self.frm, from_=0, to=5, orient=HORIZONTAL)
         self.max_slider = Scale(self.frm, from_=3, to=10, orient=HORIZONTAL)
@@ -52,7 +52,7 @@ class Zwicky:
         ttk.Label(self.frm, text="Enter Youtube Video URL").grid(
             column=0, row=1, sticky=W
         )
-        self.entryfield.grid(column=1, row=1, sticky=E)
+        self.entry_field.grid(column=1, row=1, sticky=E)
 
         ttk.Label(self.frm, text="Min Word Frequency (%)").grid(
             column=0, row=2, sticky=W
@@ -142,7 +142,7 @@ class Zwicky:
                     f.write(f"{word}: {str(frequencies)} ({percentage:.2f}%)" + "\n")
 
     def get_information(self):
-        url = self.entryfield.get()
+        url = self.entry_field.get()
         video_id = re.findall(r"(?<=v=)[^&#]+", url)[0]
         lang_choice = self.combobox.get()
         locale.setlocale(locale.LC_ALL, self.locale_codes[lang_choice])
