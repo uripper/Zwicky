@@ -1,0 +1,36 @@
+language_list = [
+            "English",
+            "French",
+            "Spanish",
+            "German",
+            "Italian",
+            "Korean",
+            "Portuguese",
+            "Russian",
+            "Turkish",
+            "Ukrainian",
+        ]
+
+[language_codes]
+English= "en"
+French="fr"
+Spanish= "es"
+German= "de"
+Italian= "it"
+Korean= "ko"
+Portuguese= "pt"
+Russian="ru"
+Turkish= "tr"
+Ukrainian= "uk"
+
+[locale_codes]
+English= "en_EN.UTF-8"
+French= "fr_FR.UTF-8"
+Spanish= "es_ES.UTF-8"
+German= "de_DE.UTF-8"
+Italian= "it_IT.UTF-8"
+Korean= "ko_KR.UTF-8"
+Portuguese= "pt_PT.UTF-8"
+Russian= "ru_RU.UTF-8"
+Turkish= "tr_TR.UTF-8"
+Ukrainian= "uk_UA.UTF-8"
